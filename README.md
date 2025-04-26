@@ -147,8 +147,3 @@ http://localhost:5000
 - **Connection Issues**: Verify your MongoDB URI and network access
 - **Dependency Errors**: Ensure you've installed `pymongo[srv]`
 - **Port Conflicts**: Change Flask's default port if 5000 is occupied
-
-git commit -m "first commit"
-
-
-git push -u origin main
