@@ -3,44 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Safety Incident Log</title>
+    <title>API Tester - AI Safety Incident Log</title>
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>AI Safety Incident Log</h1>
+        <h1><i class="fas fa-shield-alt"></i> AI Safety Incident API Tester</h1>
         
-        <div class="sections">
-            <section class="incident-form">
-                <h2>Report New Incident</h2>
-                <form id="incidentForm">
-                    <div class="form-group">
-                        <label for="title">Title:</label>
-                        <input type="text" id="title" name="title" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description:</label>
-                        <textarea id="description" name="description" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="severity">Severity:</label>
-                        <select id="severity" name="severity" required>
-                            <option value="">Select severity</option>
-                            <option value="Low">Low</option>
-                            <option value="Medium">Medium</option>
-                            <option value="High">High</option>
-                        </select>
-                    </div>
-                    <button type="submit">Submit Incident</button>
-                </form>
-            </section>
-            
-            <section class="incident-list">
-                <h2>Recent Incidents</h2>
-                <div id="incidentsContainer">
-                    <!-- Incidents will be loaded here -->
+        <div class="api-tester">
+            <div class="request-panel">
+                <div class="request-controls">
+                    <select id="methodSelect" title="Select HTTP method">
+                        <option value="GET">GET</option>
+                        <option value="POST">POST</option>
+                        <option value="DELETE">DELETE</option>
+                    </select>
+                    <input type="text" id="endpointInput" placeholder="/incidents" value="/incidents" title="API endpoint path">
+                    <button id="sendRequest" title="Send the request">Send <i class="fas fa-paper-plane"></i></button>
                 </div>
-            </section>
+                
+                <div class="request-body" id="requestBodyContainer">
+                    <div class="body-header">
+                        <span>Request Body (JSON)</span>
+                        <button id="toggleBody" title="Toggle request body visibility"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <textarea id="requestBody" placeholder="Enter JSON request body here">{
+  "title": "Sample Incident",
+  "description": "This is a test incident",
+  "severity": "Medium"
+}</textarea>
+                </div>
+            </div>
+            
+            <div class="right-column">
+                <div class="response-panel">
+                    <div class="response-header">
+                        <span>Response</span>
+                        <div class="status-indicator" id="statusIndicator">Status: --</div>
+                    </div>
+                    <pre id="responseOutput">{
+  "message": "Response will appear here"
+}</pre>
+                </div>
+                
+                <div class="history-panel">
+                    <h3><i class="fas fa-history"></i> Request History</h3>
+                    <div id="historyList"></div>
+                </div>
+            </div>
         </div>
     </div>
     

@@ -71,7 +71,6 @@ class Incident:
     def seed_initial_data():
         """Seed the database with initial sample data"""
         try:
-            # Test connection first
             db.command('ping')
             
             if incidents_collection.count_documents({}) == 0:

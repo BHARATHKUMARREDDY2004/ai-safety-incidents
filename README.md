@@ -140,7 +140,7 @@ http://localhost:5000
 1. **Database Choice**: MongoDB was selected for its flexibility with incident data structures
 2. **Connection Handling**: Automatic retry logic for database operations
 3. **Error Handling**: Consistent JSON error responses
-4. **Frontend**: Minimal JavaScript implementation for demonstration purposes
+4. **Frontend**: Minimal JavaScript implementation for API demonstration 
 
 ## Troubleshooting
 
